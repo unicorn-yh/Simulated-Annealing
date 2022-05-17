@@ -9,7 +9,7 @@ instances={    #所有样例的工件数和机器数
 
 class jobshop:
     def __init__(self):
-        instance=6                    #获取的样例
+        instance=10                    #获取的样例
         job,machine=instances[instance][0],instances[instance][1]  #工件数和机器数
         max_iteration=1000            #最高迭代次数
         temperature,coef=100,0.9      #默认起始温度和衰减系数
@@ -25,6 +25,7 @@ class jobshop:
             temperature=1000
             coef=0.99
         #self.boltzmann_const=1.380649*1e-23
+        self.job=job
         self.getData(instance=instance)   
         self.SA(self.objective,max_iteration,coef,temperature)  
         self.getFigure(instance=instance)    
@@ -105,7 +106,10 @@ class jobshop:
                     initial_x=new_x                             
                     if new_cost<best_cost:     #更新每次最优的加工时间和加工顺序           
                         best_order,best_cost=self.order,new_cost
-                        print(f'Acceptance Criteria={probability:.5f} | Temperature={temperature:.2f} | Order={best_order} | Time={best_cost}')
+                        if self.job>30:
+                             print(f'Acceptance Criteria={probability:.5f} | Temperature={temperature:.2f} | Time={best_cost}')
+                        else: 
+                            print(f'Acceptance Criteria={probability:.5f} | Temperature={temperature:.2f} | Order={best_order} | Time={best_cost}')
                         self.output.append(best_cost)
                 else:   
                     difference=initial_cost-new_cost    #计算 Metropolis 准则概率
