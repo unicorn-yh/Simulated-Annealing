@@ -1,7 +1,15 @@
+'''
+学号: 1820201040
+姓名: 黎雍卉
+班级: 07162003
+'''
+
 import numpy as np
 from sklearn.utils import shuffle
 import matplotlib.pyplot as plt
+import time
 
+instance=3     #获取的样例（可根据需求修改）
 instances={    #所有样例的工件数和机器数
     0:[11,5],1:[6,8],2:[11,4],3:[14,5],4:[16,4],5:[10,6],
     6:[20,10],7:[20,15],8:[20,5],9:[20,15],10:[50,10]
@@ -9,9 +17,9 @@ instances={    #所有样例的工件数和机器数
 
 class jobshop:
     def __init__(self):
-        instance=10                    #获取的样例
-        job,machine=instances[instance][0],instances[instance][1]  #工件数和机器数
-        max_iteration=1000            #最高迭代次数
+        self.start_time=time.time()
+        job,machine=instances[instance][0],instances[instance][1]  
+        max_iteration=1000            #内循环迭代次数
         temperature,coef=100,0.9      #默认起始温度和衰减系数
         self.min_temperature=0.1      #最低预定的温度
         '''根据工件数和机器个数调整起始温度和衰减系数'''
@@ -27,7 +35,7 @@ class jobshop:
         #self.boltzmann_const=1.380649*1e-23
         self.job=job
         self.getData(instance=instance)   
-        self.SA(self.objective,max_iteration,coef,temperature)  
+        self.SA(self.objective,max_iteration,coef,temperature,instance)  
         self.getFigure(instance=instance)    
     
     def getData(self,instance):   #读入文件获取数据,instance为执行的样例
@@ -90,16 +98,16 @@ class jobshop:
         self.order=x
         return cost[n-1][m-1]   
             
-    def SA(self,objective,max_iteration,coef,temperature):  #模拟退火算法
+    def SA(self,objective,max_iteration,coef,temperature,instance):  #模拟退火算法
         initial_x=self.getRandom()              #随机获取新解和目标函数值
         initial_cost=objective(initial_x)       
         best_cost=initial_cost
         self.output,best_order=[],[]
         self.output.append(initial_cost)        #记录每次最新的最优加工时间
         probability=0                           #初始化 Metropolis 准则概率
-        while temperature>self.min_temperature:    #终止迭代的条件:温度大于预定的最低温度
-            for i in range(max_iteration):
-                new_x=self.getNeighbour(initial_x)  #获取起始点/候选极值点的邻域解
+        while temperature>self.min_temperature:    #外循环终止迭代的条件:温度大于预定的最低温度
+            for i in range(max_iteration):         #内循环
+                new_x=self.getNeighbour(initial_x)  #获取起始点/候选极值点的邻域解 
                 new_cost=objective(new_x)
                 if new_cost<initial_cost:      #若新目标函数值小于起始目标函数值,则接受x作为新候选极值点
                     initial_cost=new_cost     
@@ -121,6 +129,8 @@ class jobshop:
             initial_cost=self.objective(initial_x)      
             temperature=temperature*coef                #下调温度
         print(f'Terminate Temperature={temperature:.3f}\nBest Order={best_order}\nBest Time={best_cost}') 
+        end_time=time.time()
+        print(f'Total time taken for instance {instance} : {end_time-self.start_time:.2f} seconds')
 
     def getFigure(self,instance):    #可视化数据：加工时间下降（目标函数）
         plt.title('Job-shop Scheduling Instance '+str(instance))
