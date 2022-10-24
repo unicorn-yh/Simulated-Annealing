@@ -98,7 +98,7 @@ For cases 6, 7, 9, 10 use parameters  (Initial temp = 1000, C = 0.99)
 
 ## Result and Analysis
 
-<h4 align="center">Table 1	Chart visualization of total machining time</h4>
+<h4 align="center">Table 1:	Chart visualization of total machining time</h4>
 
 | Instance | Graph (Job Time VS Sort Count)                               | Workpiece | Machine | $t_{0}$ | $C$  |
 | -------- | ------------------------------------------------------------ | --------- | ------- | ------- | ---- |
@@ -116,7 +116,7 @@ For cases 6, 7, 9, 10 use parameters  (Initial temp = 1000, C = 0.99)
 
 <br />
 
-<h4 align="center">Table 2	Optimal machining order and total machining time</h4>
+<h4 align="center">Table 2:	Optimal machining order and total machining time</h4>
 
 | Instance | Optimal machining order                                      | Running time (ms) |
 | -------- | ------------------------------------------------------------ | ----------------- |
@@ -138,7 +138,7 @@ However, with a higher initial temperature $t_{0}$ and a temperature decrement r
 
 <br/>
 
-<h4 align="center">Table 3	Simulated annealing algorithm solution process and result display</h4>
+<h4 align="center">Table 3:	Simulated annealing algorithm solution process and result display</h4>
 
 | Solution process and result display                          |
 | ------------------------------------------------------------ |
@@ -160,7 +160,7 @@ The output "Acceptance Criteria" is the current Metropolis criterion probability
 
 <br />
 
-<h4 align="center">Table 4	Comparison of parameters of each flow shop scheduling case</h4>
+<h4 align="center">Table 4:	Comparison of parameters of each flow shop scheduling case</h4>
 
 | Instance | Num of workpiece, $n$ | Num of machine, $m$ | Initial Temperature, $t_{0}$ | Decay Coefficient, $C$ | Running time (s) |
 | -------- | --------------------- | ------------------- | ---------------------------- | ---------------------- | ---------------- |
