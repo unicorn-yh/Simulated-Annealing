@@ -88,13 +88,11 @@ Experimental environment :  Visual Studio Code 1.67.1 + Python 3.9.1
 
 Experimental parameters   :   
 
-​                         
-$$
-For \ cases\ 0, 1, 2, 5\ \ \ \ \ use\ parameters\ \ \ \ (t_{0} = 100,C=0.9) \\
-For \ cases\ 3, 4, 8\ \ \ \ \ \ \ \ \ use\ parameters\ \ \ \ (t_{0} = 500,C=0.99) \\
-For \ cases\ 6, 7, 9, 10\ \ \ use\ parameters\ \ \  (t_{0} = 1000,C=0.99)
-$$
-
+```
+For cases 0, 1, 2, 5  use parameters  (t_{0} = 100,C=0.9)
+For cases 3, 4, 8     use parameters  (t_{0} = 500,C=0.99)
+For cases 6, 7, 9, 10 use parameters  (t_{0} = 1000,C=0.99)
+```
 
 <br />
 
