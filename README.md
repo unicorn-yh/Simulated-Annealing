@@ -85,15 +85,16 @@ Assuming that the number of iterations of the inner loop is $g$, the time comple
 ## Environmental setup
 
 Experimental environment :  Visual Studio Code 1.67.1 + Python 3.9.1
-Experimental parameters   : For cases 0, 1, 2, 5 use parameters    ($t_{0} = 100,C=0.9$)
-                                                   For cases 3, 4, 8 use parameters        ($t_{0} = 500,C=0.99$)
-												   For cases 6, 7, 9, 10 use parameters  ($t_{0} = 1000,C=0.99$)
+
+Experimental parameters   : For cases 0, 1, 2, 5 use parameters    $(t_{0} = 100,C=0.9)$
+                                                   For cases 3, 4, 8 use parameters        $(t_{0} = 500,C=0.99)$
+												   For cases 6, 7, 9, 10 use parameters  $(t_{0} = 1000,C=0.99)$
 
 <br />
 
 ## Result and Analysis
 
-#### Table 1	Chart visualization of total machining time
+<h4 align="center">Table 1	Chart visualization of total machining time</h4>
 
 | Instance | Graph (Job Time VS Sort Count)                               | Workpiece | Machine | $t_{0}$ | $C$  |
 | -------- | ------------------------------------------------------------ | --------- | ------- | ------- | ---- |
@@ -111,7 +112,7 @@ Experimental parameters   : For cases 0, 1, 2, 5 use parameters    ($t_{0} = 100
 
 <br />
 
-#### Table 2	Optimal machining order and total machining time
+<h4 align="center">Table 2	Optimal machining order and total machining time</h4>
 
 | Instance | Optimal machining order                                      | Running time (ms) |
 | -------- | ------------------------------------------------------------ | ----------------- |
@@ -133,7 +134,7 @@ However, with a higher initial temperature $t_{0}$ and a temperature decrement r
 
 <br/>
 
-#### Table 3	Simulated annealing algorithm solution process and result display
+<h4 align="center">Table 3	Simulated annealing algorithm solution process and result display</h4>
 
 | Solution process and result display                          |
 | ------------------------------------------------------------ |
@@ -155,7 +156,7 @@ The output "Acceptance Criteria" is the current Metropolis criterion probability
 
 <br />
 
-#### Table 4	Comparison of parameters of each flow shop scheduling case
+<h4 align="center">Table 4	Comparison of parameters of each flow shop scheduling case</h4>
 
 | Instance | Num of workpiece, $n$ | Num of machine, $m$ | Initial Temperature, $t_{0}$ | Decay Coefficient, $C$ | Running time (s) |
 | -------- | --------------------- | ------------------- | ---------------------------- | ---------------------- | ---------------- |
